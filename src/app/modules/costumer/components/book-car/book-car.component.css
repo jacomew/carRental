@@ -1,0 +1,13 @@
+/* Estilos para ajustar la altura de la tarjeta y la imagen */
+.card {
+  max-width: 300px; /* Establece el ancho máximo de la tarjeta */
+}
+
+.card .card-img-top {
+  max-height: 200px; /* Establece la altura máxima de la imagen dentro de la tarjeta */
+  object-fit: cover; /* Ajusta la imagen para cubrir el contenedor manteniendo su relación de aspecto */
+}
+
+.custom-card {
+  margin: 0 auto; /* Esto centra la tarjeta horizontalmente */
+}

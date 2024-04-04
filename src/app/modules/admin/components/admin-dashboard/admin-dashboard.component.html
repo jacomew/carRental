@@ -1,0 +1,72 @@
+<!-- INICIO NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Wall-e Cars</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
+      <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item" style="margin-right: 20px;">
+          <a class="nav-link" href="/admin/car">
+            <i class="bi bi-plus-circle"></i> Agregar Carro
+
+          </a>
+        </li>
+        <li class="nav-item" style="margin-right: 20px;">
+          <a class="nav-link" href="/login">
+            <i class="bi bi-person-fill"></i> Cerrar Sesión
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- FIN NAVBAR -->
+<div class="container mt-4">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 justify-content-center my-3">
+    <!-- Verificar si hay elementos en la lista de carros -->
+    <ng-container *ngIf="carList.length > 0; else noCarsMessage">
+      <div class="col mb-3" *ngFor="let car of carList">
+        <div class="card">
+          <img [src]="car.img" class="card-img-top w-100" style="height: 300px;" alt="Car Image"> <!-- Establece el ancho al 100% del contenedor padre -->
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ car.name }}</h5>
+            <hr>
+            <div class="d-flex flex-wrap">
+              <p class="card-text font-weight-bold me-3">Marca: {{ car.brand }}</p>
+              <p class="card-text me-3">Precio: {{ car.price }}</p>
+              <p class="card-text me-3">Color: {{ car.color }}</p>
+              <p class="card-text me-3">Transmisión: {{ car.transmission }}</p>
+              <p class="card-text me-3">Tipo: {{ car.type }}</p>
+              <p class="card-text">Año: {{ car.year }}</p>
+            </div>
+            <p class="card-text">{{ car.description }}</p>
+            <!-- Botones de actualizar y borrar -->
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-primary me-2" routerLink="/admin/car/{{car.id}}">Actualizar</button>
+              <button class="btn btn-danger" (click)="deleteCar(car.id)">Borrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <!-- Mensaje de error si no hay carros -->
+    <ng-template #noCarsMessage>
+      <div class="alert alert-warning" role="alert">
+        No hay carros disponibles. Agregue uno para verlo aquí.
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<router-outlet></router-outlet>

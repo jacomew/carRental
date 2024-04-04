@@ -1,0 +1,120 @@
+<!-- INICIO NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Wall-e Cars</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
+      <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item" style="margin-right: 20px;">
+          <a class="nav-link" href="/admin/car">
+            <i class="bi bi-plus-circle"></i> Agregar Carro
+
+          </a>
+        </li>
+        <li class="nav-item" style="margin-right: 20px;">
+          <a class="nav-link" href="/login">
+            <i class="bi bi-person-fill"></i> Cerrar Sesión
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- FIN NAVBAR -->
+
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<div class="container bootstrap snippets bootdey">
+    <section id="contact" class="gray-bg padding-top-bottom">
+        <div class="container bootstrap snippets bootdey">
+            <div class="row justify-content-center align-items-center">
+                <form id="Highlighted-form" class="col-sm-6 col-sm-offset-3" action="contact.php" method="post" novalidate="" #carForm="ngForm">
+
+                    <div class="form-group">
+                      <label class="control-label" for="contact-name">Marca</label>
+                      <div class="controls">
+                        <input id="contact-name" name="brand" placeholder="Marca" class="form-control Highlighted-label" data-new-placeholder="Marca" type="text" [(ngModel)]="car.brand" required>
+                      </div>
+                      <i class="bi bi-card-text"></i>
+                    </div><!-- End name input -->
+
+                    <div class="form-group">
+                      <label class="control-label" for="contact-mail">Color</label>
+                      <div class=" controls">
+                        <input id="contact-mail" name="color" placeholder="Color" class="form-control Highlighted-label" data-new-placeholder="Your email" type="email" [(ngModel)]="car.color" required>
+                        <i class="bi bi-paint-bucket"></i>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label" for="contact-description">Descripción</label>
+                      <div class="controls">
+                          <textarea id="contact-description" name="description" placeholder="Descripción" class="form-control Highlighted-label" data-new-placeholder="Descripción" rows="4" cols="50" [(ngModel)]="car.description" required></textarea>
+                          <i class="bi bi-pencil-square"></i>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label" for="contact-mail">Enlace a la imagen</label>
+                    <div class="controls">
+                        <input id="contact-mail" name="img" placeholder="Enlace a la imagen" class="form-control Highlighted-label" data-new-placeholder="Your email" type="text" [(ngModel)]="car.img" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label" for="contact-mail">Nombre</label>
+                  <div class="controls">
+                      <input id="contact-name" name="name" placeholder="Nombre" class="form-control Highlighted-label" data-new-placeholder="Nombre" type="text" [(ngModel)]="car.name" required>
+                  </div>
+                  <i class="bi bi-card-text"></i>
+              </div><!-- End name input -->
+
+                <div class="form-group">
+                  <label class="control-label" for="contact-mail">Precio</label>
+                  <div class=" controls">
+                    <input id="contact-mail" name="price" placeholder="Precio" class="form-control Highlighted-label" data-new-placeholder="Your email" type="number" [(ngModel)]="car.price" required>
+                    <i class="bi bi-currency-dollar"></i>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label" for="contact-description">Nombre</label>
+                  <div class="controls">
+                      <select id="contact-description" name="transmission" class="form-control Highlighted-label" [(ngModel)]="car.transmission" required>
+                          <option value="">Tipo de transmisión</option>
+                          <option value="Manual">Manual</option>
+                          <option value="Automática">Automática</option>
+                      </select>
+                  </div>
+                  <i class="bi bi-gear-fill"></i>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label" for="contact-mail">Tipo</label>
+                <div class=" controls">
+                  <input id="contact-mail" name="type" placeholder="Tipo" class="form-control Highlighted-label" data-new-placeholder="Your email" type="text" [(ngModel)]="car.type" required>
+                  <i class="bi bi-card-heading"></i>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label" for="year">Año</label>
+                <div class="controls">
+                    <input id="year" name="year" placeholder="Año" class="form-control Highlighted-label" data-new-placeholder="Año" type="number" min="1900" max="2100" [(ngModel)]="car.year" required>
+                    <i class="bi bi-calendar-check-fill"></i>
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+              <button type="button" class="btn btn-primary" (click)="addcar()">Agregar Carro</button>
+          </div>
+                </form><!-- End Highlighted-form -->
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+

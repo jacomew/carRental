@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <div class="row justify-content-center my-3">
+    <div class="col mb-3">
+      <div class="card custom-card">
+        <img [src]="car.img" class="card-img-top w-100" style="height: 300px;" alt="Car Image">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ car.name }}</h5>
+          <hr>
+          <div class="d-flex flex-wrap">
+            <p class="card-text font-weight-bold me-3">Marca: {{ car.brand }}</p>
+            <p class="card-text me-3">Precio: {{ car.price }}</p>
+            <p class="card-text me-3">Color: {{ car.color }}</p>
+            <p class="card-text me-3">Transmisión: {{ car.transmission }}</p>
+            <p class="card-text me-3">Tipo: {{ car.type }}</p>
+            <p class="card-text">Año: {{ car.year }}</p>
+          </div>
+          <p class="card-text">{{ car.description }}</p>
+
+          <!-- Calendario para fecha de inicio -->
+          <div class="form-group">
+            <label for="startDate">Fecha de inicio:</label>
+            <input type="date" class="form-control" id="startDate" name="startDate" [(ngModel)]="startDate">
+          </div>
+
+          <!-- Calendario para fecha de fin -->
+          <div class="form-group">
+            <label for="endDate">Fecha de fin:</label>
+            <input type="date" class="form-control" id="endDate" name="endDate" [(ngModel)]="endDate">
+          </div>
+
+          <!-- Botón de reservar -->
+          <div class="text-center mt-3"> <!-- Agrega la clase text-center para centrar el botón -->
+            <button class="btn btn-success" (click)="bookCar()">Reservar</button> <!-- Usa el color verde de Bootstrap -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
