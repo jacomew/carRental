@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; // Importa Router
 import { CustomerService } from '../../services/customer.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -16,7 +17,8 @@ export class BookCarComponent implements OnInit {
 
   constructor(
     private customerService: CustomerService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router // Inyecta Router
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +40,10 @@ export class BookCarComponent implements OnInit {
     );
   }
 
+  Cancelar(){
+    this.router.navigate(['/customer']);
+  }
+
   bookCar() {
     if (!this.car || !this.startDate || !this.endDate) {
       window.alert('Por favor complete todos los campos para realizar la reserva.');
@@ -57,7 +63,7 @@ export class BookCarComponent implements OnInit {
       (response: any) => {
         if (response.message === 'Reservation added successfully') {
           window.alert('El carro se ha reservado exitosamente');
-          // Agregar cualquier otra lógica después de la reserva exitosa
+          this.router.navigate(['/bookings']); // Redirige a /bookings después de una reserva exitosa
         } else {
           window.alert('Hubo un problema al reservar el carro: ' + response.message);
           // Manejar cualquier problema con la reserva
@@ -69,9 +75,5 @@ export class BookCarComponent implements OnInit {
       }
     );
   }
-
-
-
-
 
 }

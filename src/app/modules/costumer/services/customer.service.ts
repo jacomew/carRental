@@ -22,6 +22,10 @@ export class CustomerService {
     return this.https.post(BASE_URL + '/api/customer/bookcar/' + carId, reservationData);
   }
 
+  getBookings() {
+    return this.https.get(BASE_URL + '/api/customer/getBookings');
+  }
+
 
 
 }

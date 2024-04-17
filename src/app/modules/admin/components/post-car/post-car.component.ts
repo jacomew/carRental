@@ -16,6 +16,10 @@ export class PostCarComponent {
     private router: Router
   ){}
 
+  Cancelar(){
+    this.router.navigate(['/admin']);
+  }
+
   addcar(){
     this.admService.addCar(this.car).subscribe((res: any) => {
       console.log("Respuesta: ", res);

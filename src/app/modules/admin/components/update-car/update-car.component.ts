@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
 import { Router } from '@angular/router';
 
@@ -9,20 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./update-car.component.css']
 })
 export class UpdateCarComponent implements OnInit {
-  car: any; // Variable para almacenar el carro
+  car: any = {}; // Variable para almacenar el carro
   updatedCarData: any = {};
+  carId: string = ""; // Variable para almacenar el ID del carro
 
   constructor(private admService: AdminService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     // Obtener el ID del carro de los parámetros de la ruta
-    const carId = this.route.snapshot.paramMap.get('id');
-    if (carId) {
-      // Llamar al método para obtener el carro por su ID
-      this.getCar(carId);
-    } else {
-      console.error('ID del carro no encontrado en la ruta');
-    }
+    this.route.params.subscribe(params => {
+      this.carId = params['id'];
+      if (this.carId) {
+        // Llamar al método para obtener el carro por su ID
+        this.getCar(this.carId);
+      } else {
+        console.error('ID del carro no encontrado en la ruta');
+      }
+    });
   }
 
   getCar(id: string) {
@@ -45,8 +48,7 @@ export class UpdateCarComponent implements OnInit {
 
   updateCar(id: string) {
     // Mostrar los datos actualizados del carro en la consola
-    console.log('Datos actualizados del carro1:', this.updatedCarData);
-    console.log(this.admService);
+    console.log('Datos del carro actualizado:', this.updatedCarData);
 
     // Llamar al servicio para actualizar el carro
     this.admService.updateCar(id, this.updatedCarData).subscribe(
@@ -68,8 +70,5 @@ export class UpdateCarComponent implements OnInit {
       }
     );
   }
-
-
-
 
 }

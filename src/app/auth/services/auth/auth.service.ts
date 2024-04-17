@@ -13,4 +13,9 @@ export class AuthService {
   register(signupRequest: any){
     return this.https.post(BASE_URL+"/api/auth/signup",signupRequest);
   }
+
+  login(loginRequest: any){
+    return this.https.post(`${BASE_URL}/api/auth/login`, loginRequest);
+  }
+
 }
